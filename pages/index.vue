@@ -1,34 +1,28 @@
 <template>
   <div class="container">
     <div>
-      <Logo />
-      <h1 class="title">
-        vuex-demo
-      </h1>
-      <div class="links">
-        <a
-          href="https://nuxtjs.org/"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="button--green"
-        >
-          Documentation
-        </a>
-        <a
-          href="https://github.com/nuxt/nuxt.js"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="button--grey"
-        >
-          GitHub
-        </a>
-      </div>
+      <ItemPerson :singlePerson="{name: 'AAAAAAAAA'}"/>
+      <ItemPerson :singlePerson="{name: 'BBBBBBBBB'}"/>
+      <ItemPerson :singlePerson="{name: 'CCCCCCCCC'}"/>
+      <ItemPerson :singlePerson="{name: 'DDDDDDDDD'}"/>
     </div>
+    <h2 class='count-total'>Total click: {{ number }}</h2>
   </div>
 </template>
 
 <script>
-export default {}
+import ItemPerson from '../components/item'
+
+export default {
+  components: {
+    ItemPerson
+  },
+  computed: {
+    number () {
+      return this.$store.state.counter.totalCount
+    }
+  },
+}
 </script>
 
 <style>
@@ -36,38 +30,12 @@ export default {}
   margin: 0 auto;
   min-height: 100vh;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   text-align: center;
 }
-
-.title {
-  font-family:
-    'Quicksand',
-    'Source Sans Pro',
-    -apple-system,
-    BlinkMacSystemFont,
-    'Segoe UI',
-    Roboto,
-    'Helvetica Neue',
-    Arial,
-    sans-serif;
-  display: block;
-  font-weight: 300;
-  font-size: 100px;
-  color: #35495e;
-  letter-spacing: 1px;
-}
-
-.subtitle {
-  font-weight: 300;
-  font-size: 42px;
-  color: #526488;
-  word-spacing: 5px;
-  padding-bottom: 15px;
-}
-
-.links {
-  padding-top: 15px;
+.count-total {
+  margin-top: 10px;
 }
 </style>
