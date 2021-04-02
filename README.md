@@ -1,5 +1,6 @@
 # vuex-demo
 
+USING VUEX BY SIMPLE EXAMPLE: COUTING APP
 ## Build Setup
 
 ```bash
